@@ -82,3 +82,6 @@ ios/generated
 android/generated
 .aider*
 .env
+
+android/gradlew
+android/gradlew.bat
