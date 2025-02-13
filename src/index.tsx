@@ -61,6 +61,7 @@ CompassHeading.start = async (
     }
   );
 
+  //@ts-ignore
   const result = await _start(update_rate === null ? 0 : update_rate);
   return result;
 };
