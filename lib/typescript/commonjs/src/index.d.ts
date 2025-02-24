@@ -6,7 +6,7 @@ export interface HeadingData {
 export interface CompassHeadingModule extends NativeModule {
     start(updateRate: number, callback: (data: HeadingData) => void): Promise<void>;
     stop(): Promise<void>;
-    hasCompass(): Promise<boolean>;
+    hasCompass(): Promise<boolean | null>;
 }
 declare const CompassHeading: CompassHeadingModule;
 export default CompassHeading;
