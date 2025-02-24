@@ -18,7 +18,7 @@ export interface CompassHeadingModule extends NativeModule {
 
   stop(): Promise<void>;
 
-  hasCompass(): Promise<boolean>;
+  hasCompass(): Promise<boolean | null>;
 }
 
 const LINKING_ERROR =
@@ -73,6 +73,14 @@ CompassHeading.stop = async () => {
     listener = null;
   }
   await _stop();
+};
+
+let _hasCompass = CompassHeading.hasCompass;
+
+CompassHeading.hasCompass = async () => {
+  if (Platform.OS === 'android') return _hasCompass();
+  if (Platform.OS === 'ios') return true;
+  return null;
 };
 
 export default CompassHeading;
